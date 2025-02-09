@@ -41,12 +41,20 @@ class SignUpActivity: AppCompatActivity() {
         binding.btnCrearCuenta.setOnClickListener {
             val email = binding.etRegistraremail.text.toString().trim()
             val password = binding.etRegistrarpassword.text.toString().trim()
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                // Llamamos a la función del ViewModel para registrar el usuario
-                viewModel.registerUser(email, password)
-            } else {
-                Toast.makeText(this, "Por favor ingrese email y contraseña", Toast.LENGTH_SHORT).show()
+            val confirmPassword = binding.etconfirmarpassword.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            if (password != confirmPassword) {
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Si to do está correcto, procede a registrar al usuario
+            viewModel.registerUser(email, password)
         }
 
         // Observamos el LiveData que expone el resultado del registro para reaccionar ante el resultado

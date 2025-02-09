@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         // 6. Configuramos el botón de login. Al pulsarlo se extraen las credenciales y se llama a la función del ViewModel.
         binding.btnLogin.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
-            val password = binding.etpassword.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
             if(email.isNotEmpty() && password.isNotEmpty()){
                 viewModel.loginUser(email, password)
             } else {

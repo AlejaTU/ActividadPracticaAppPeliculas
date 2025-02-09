@@ -1,4 +1,6 @@
 package com.example.actividadpracticaapppeliculas
 
-class MoviesListActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class MoviesListActivity: AppCompatActivity() {
 }
