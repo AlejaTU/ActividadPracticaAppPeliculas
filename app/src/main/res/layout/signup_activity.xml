@@ -9,37 +9,35 @@
     android:background="@drawable/fondo">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvCrearCuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
-        android:text="Login"
+        android:text="Crear Cuenta"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/etRegistraremail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
 
-
         android:layout_marginStart="8dp"
+        android:layout_marginTop="87dp"
         android:layout_marginEnd="9dp"
         android:hint="Introduce su email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tvCrearCuenta"
         app:layout_goneMarginBottom="20dp" />
 
     <EditText
-        android:id="@+id/etpassword"
+        android:id="@+id/etRegistrarpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -48,33 +46,29 @@
         android:layout_marginEnd="9dp"
         android:hint="Introduce su contrasena"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/etRegistraremail" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+    <EditText
+        android:id="@+id/etconfirmarpassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:elevation="4dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="Acceder"
-        android:textColor="@color/buttonTextColor"
-        app:cornerRadius="16dp"
-        app:iconGravity="textStart"
+        android:layout_margin="10dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="9dp"
+        android:hint="Confirme su contrasena"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etpassword"
-        app:strokeWidth="0dp" />
+        app:layout_constraintTop_toBottomOf="@+id/etRegistrarpassword" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnRegister"
+        android:id="@+id/btnCrearCuenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:backgroundTint="@color/black"
         android:elevation="4dp"
         android:paddingLeft="40dp"
         android:paddingRight="40dp"
@@ -84,7 +78,7 @@
         app:iconGravity="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/etconfirmarpassword"
         app:strokeWidth="0dp" />
 
 

@@ -2,4 +2,32 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- Colores primarios -->
+    <color name="primaryColor">#FF5722</color>           <!-- naranja  -->
+    <color name="primaryLightColor">#FF8A50</color>      <!-- Versión más clara -->
+    <color name="primaryDarkColor">#E64A19</color>       <!-- Versión más oscura -->
+
+    <!-- Colores secundarios -->
+    <color name="secondaryColor">#4CAF50</color>         <!-- Verde  -->
+    <color name="secondaryLightColor">#80E27E</color>
+    <color name="secondaryDarkColor">#388E3C</color>
+
+    <!-- Colores de acento -->
+    <color name="accentColor">#FFC107</color>            <!-- Amarillo  -->
+    <color name="accentLightColor">#FFD54F</color>
+    <color name="accentDarkColor">#FFA000</color>
+
+    <!-- Colores neutros y de fondo -->
+    <color name="backgroundColor">#FFFFFF</color>        <!-- Fondo blanco -->
+    <color name="surfaceColor">#F5F5F5</color>           <!-- Gris muy claro para superficies -->
+    <color name="textPrimaryColor">#212121</color>       <!-- Texto principal en gris oscuro -->
+    <color name="textSecondaryColor">#757575</color>     <!-- Texto secundario en gris medio -->
+
+    <!-- Colores de error -->
+    <color name="errorColor">#F44336</color>             <!-- Rojo para errores -->
+
+    <!-- Colores extra para detalles o iconos -->
+    <color name="iconTintColor">#009688</color>          <!-- Un tono teal para íconos -->
+    <color name="buttonColor">#3F51B5</color>            <!-- Un azul para botones personalizados -->
+    <color name="buttonTextColor">#FFFFFF</color>
 </resources>
