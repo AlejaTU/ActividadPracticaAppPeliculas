@@ -76,15 +76,28 @@ class MoviesListActivity: AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val category = when (item.itemId) {
-            R.id.menu_upcoming -> MovieCategory.UPCOMING
-            R.id.menu_popular -> MovieCategory.POPULAR
-            R.id.menu_top_rated -> MovieCategory.TOP_RATED
-            R.id.menu_now_playing -> MovieCategory.NOW_PLAYING
+            R.id.menu_upcoming -> {
+                supportActionBar?.title = "Próximamente"
+                MovieCategory.UPCOMING
+            }
+            R.id.menu_popular -> {
+                supportActionBar?.title = "Populares"
+                MovieCategory.POPULAR
+            }
+            R.id.menu_top_rated -> {
+                supportActionBar?.title = "Mejor Valoradas"
+                MovieCategory.TOP_RATED
+            }
+            R.id.menu_now_playing -> {
+                supportActionBar?.title = "En Cartelera"
+                MovieCategory.NOW_PLAYING
+            }
             else -> return super.onOptionsItemSelected(item)
         }
         viewModel.loadMovies(category)
         return true
     }
+
 
 
 }
