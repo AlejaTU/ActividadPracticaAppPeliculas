@@ -1,6 +1,6 @@
 package com.example.actividadpracticaapppeliculas.viewmodel
 
-import android.graphics.Movie
+import com.example.actividadpracticaapppeliculas.model.Movie
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,6 +1,6 @@
 package com.example.actividadpracticaapppeliculas.model
 
-import android.graphics.Movie
+import com.example.actividadpracticaapppeliculas.model.Movie
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

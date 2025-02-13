@@ -12,6 +12,7 @@ constraintlayout = "2.2.0"
 retrofit = "2.9.0"
 gson = "2.9.0"
 room = "2.5.2"
+picasso = "2.71828"
 
 ksp = "1.9.0-1.0.11"
 
@@ -41,6 +42,9 @@ lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx",
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
