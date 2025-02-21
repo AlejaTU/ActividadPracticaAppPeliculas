@@ -28,7 +28,9 @@ abstract class AppDataBase: RoomDatabase() {
                     context.applicationContext,  // El contexto de la aplicación para evitar fugas de memoria.
                     AppDataBase::class.java,      // La clase de la base de datos (nuestra clase abstracta).
                     "app_database"                 // El nombre de la base de datos.
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance  // Devuelve la instancia recién creada.
             }

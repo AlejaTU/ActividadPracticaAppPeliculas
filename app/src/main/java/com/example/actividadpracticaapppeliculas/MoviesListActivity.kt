@@ -68,7 +68,7 @@ class MoviesListActivity: AppCompatActivity() {
             adapter.updateMovies(movies)
         })
 
-        viewModel.loadMovies(MovieCategory.UPCOMING)
+        viewModel.loadMovies(MovieCategory.NOW_PLAYING)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.actividadpracticaapppeliculas.database.AppDataBase
 import com.example.actividadpracticaapppeliculas.databinding.MovieDetailBinding
+import com.example.actividadpracticaapppeliculas.model.FavoriteMovie
 import com.example.actividadpracticaapppeliculas.model.Movie
 import com.example.actividadpracticaapppeliculas.repository.FavoritesRepository
 import com.example.actividadpracticaapppeliculas.viewmodel.FavoritesViewModel
@@ -53,22 +54,33 @@ class MovieDetailActivity: AppCompatActivity() {
 
 
         binding.btnFavorites.setOnClickListener {
-
-                if (isFavorite) {
-                    // Si ya está marcado, lo eliminamos de favoritos
-                    Toast.makeText(this, "Esta en favoritos", Toast.LENGTH_SHORT).show()
-
-                } else {
+            movie?.let { m ->
+                // Crea una instancia de FavoriteMovie a partir del objeto Movie
+                val favMovie = FavoriteMovie(
+                    id = m.id,
+                    title = m.title,
+                    overview = m.overview,
+                    posterPath = m.posterPath,
+                    releaseDate = m.releaseDate,
+                    voteAverage = m.voteAverage
+                )
+                if (!isFavorite) {
                     // Si no está marcado, lo añadimos a favoritos
-                  updateFavoriteIcon()
-                    //anadir a room
-                    if (movie != null) {
-                        favoritesViewModel.addFavorite(movie)
-                    }
+                    favoritesViewModel.addFavorite(favMovie)
+                    isFavorite = true
+                } else {
+                    // Si ya está, lo eliminamos de favoritos
+                    favoritesViewModel.removeFavorite(favMovie)
+                    isFavorite = false
                 }
-
-
+                updateFavoriteIcon()
+                val message = if (isFavorite) "${m.title} añadido a favoritos"
+                else "${m.title} eliminado de favoritos"
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
         }
+
+
 
 
 
