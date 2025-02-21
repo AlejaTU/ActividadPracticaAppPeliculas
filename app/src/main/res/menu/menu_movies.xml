@@ -12,4 +12,8 @@
     <item
         android:id="@+id/menu_now_playing"
         android:title="En Cartelera"/>
+
+    <item
+        android:id="@+id/menu_favorites"
+        android:title="Favoritos"/>
 </menu>

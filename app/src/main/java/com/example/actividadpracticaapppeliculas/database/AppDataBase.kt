@@ -4,13 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.actividadpracticaapppeliculas.dao.FavoriteMovieDAO
 import com.example.actividadpracticaapppeliculas.dao.UserDao
+import com.example.actividadpracticaapppeliculas.model.FavoriteMovie
 import com.example.actividadpracticaapppeliculas.model.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, FavoriteMovie::class], version = 2, exportSchema = false)
 abstract class AppDataBase: RoomDatabase() {
 
     abstract  fun userDao(): UserDao
+    abstract fun favoriteMovieDao(): FavoriteMovieDAO
     companion object {
         // La variable INSTANCE es marcada como @Volatile para garantizar que los cambios sean visibles para todos los hilos.
         @Volatile

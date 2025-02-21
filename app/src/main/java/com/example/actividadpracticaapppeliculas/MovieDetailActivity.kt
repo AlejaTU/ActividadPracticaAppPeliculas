@@ -3,13 +3,19 @@ package com.example.actividadpracticaapppeliculas
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.actividadpracticaapppeliculas.database.AppDataBase
 import com.example.actividadpracticaapppeliculas.databinding.MovieDetailBinding
 import com.example.actividadpracticaapppeliculas.model.Movie
+import com.example.actividadpracticaapppeliculas.repository.FavoritesRepository
+import com.example.actividadpracticaapppeliculas.viewmodel.FavoritesViewModel
 import com.squareup.picasso.Picasso
 
 class MovieDetailActivity: AppCompatActivity() {
 
     private lateinit var binding: MovieDetailBinding
+    private var isFavorite: Boolean = false
+    private lateinit var favoritesViewModel: FavoritesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +43,44 @@ class MovieDetailActivity: AppCompatActivity() {
         finish()
     }
 
+        // Inicializa el repository de favoritos usando tu base de datos
+        val database = AppDataBase.getDatabase(applicationContext)
+        val favoritesRepository = FavoritesRepository(database.favoriteMovieDao())
+        favoritesViewModel = ViewModelProvider(this, FavoritesViewModelFactory(favoritesRepository))
+            .get(FavoritesViewModel::class.java)
+
         //configurar boton para anadir favoritos
 
-        Toast.makeText(this, "${movie?.title} añadido a favoritos", Toast.LENGTH_SHORT).show()
+
+        binding.btnFavorites.setOnClickListener {
+
+                if (isFavorite) {
+                    // Si ya está marcado, lo eliminamos de favoritos
+                    Toast.makeText(this, "Esta en favoritos", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // Si no está marcado, lo añadimos a favoritos
+                  updateFavoriteIcon()
+                    //anadir a room
+                    if (movie != null) {
+                        favoritesViewModel.addFavorite(movie)
+                    }
+                }
+
+
+        }
+
+
+
 
 
     }
+    private fun updateFavoriteIcon() {
+        if (isFavorite) {
+            binding.ivFavoriteStar.setImageResource(R.drawable.ic_estrella_llena)
+        } else {
+            binding.ivFavoriteStar.setImageResource(R.drawable.ic_estrella_vacia)
+        }
 
-}
+
+    }}

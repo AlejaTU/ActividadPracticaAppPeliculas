@@ -1,5 +1,6 @@
 package com.example.actividadpracticaapppeliculas
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.example.actividadpracticaapppeliculas.model.Movie
@@ -92,9 +93,13 @@ class MoviesListActivity: AppCompatActivity() {
                 supportActionBar?.title = "En Cartelera"
                 MovieCategory.NOW_PLAYING
             }
+            R.id.menu_favorites -> {
+                startActivity(Intent(this, FavoritesActivity::class.java))
+                true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
-        viewModel.loadMovies(category)
+        viewModel.loadMovies(category as MovieCategory)
         return true
     }
 
